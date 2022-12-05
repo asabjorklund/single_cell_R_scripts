@@ -1,6 +1,6 @@
 ## Collection of custom scripts used in Single Cell analyses
 
-Source a script with devtools::source_url("https://raw.github.com/single_cell_R_scripts/<script_name>.R")
+Source a script with devtools::source_url("https://https://raw.githubusercontent.com/asabjorklund/single_cell_R_scripts/<script_name>.R")
 
 
 
