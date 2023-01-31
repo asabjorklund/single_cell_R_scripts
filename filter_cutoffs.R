@@ -1,6 +1,6 @@
 # filter cells in seurat object
-@ cells grouped by batch.key
-@ qc stat in meta.name meta.data slot.
+# cells grouped by batch.key
+# qc stat in meta.name meta.data slot.
 # define cutoff by median +/- mad.cut* mad 
 # upper TRUE/FALSE to cut upper/lower tail.
 
