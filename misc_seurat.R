@@ -54,7 +54,7 @@ run.deg = function(tmp, filename, topN = 10, method = "wilcox", latent.vars = NU
     if (is.integer(subsampleN)){
       tmp = tmp[,WhichCells(tmp,downsample = subsampleN)]
     }else if (subsampleN == "min"){
-      n = min(table(data@active.ident))
+      n = min(table(tmp@active.ident))
       tmp = tmp[,WhichCells(tmp,downsample = n)]
     }
     
