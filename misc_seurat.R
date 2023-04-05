@@ -40,7 +40,7 @@ plot_markers = function(tmp, reduction = "umap") {
 }
 
 run.deg = function(tmp, filename, topN = 10, method = "wilcox", latent.vars = NULL, 
-                   force = FALSE, subsampleN = "min") {
+                   force = FALSE, subsampleN = "min", ...) {
   # run FindMarkers for all vs rest in ActiveIdent
   # subsample with:
   # None if subsampeN = Inf,
@@ -58,7 +58,7 @@ run.deg = function(tmp, filename, topN = 10, method = "wilcox", latent.vars = NU
       tmp = tmp[,WhichCells(tmp,downsample = n)]
     }
     
-    markers = FindAllMarkers(tmp,assay = "RNA", only.pos = T, test.use = method, latent.vars = latent.vars)
+    markers = FindAllMarkers(tmp,assay = "RNA", only.pos = T, test.use = method, latent.vars = latent.vars, ...)
     write.csv(markers, file=filename)
   }
   per.cl = split(markers$gene, markers$cluster)
@@ -69,7 +69,7 @@ run.deg = function(tmp, filename, topN = 10, method = "wilcox", latent.vars = NU
 
 
 run.deg.pairwise = function(tmp, file_prefix , id.col = "orig.ident", topN = 10, pval.cut = 0.01, 
-                            method = "wilcox", latent.vars = NULL, force = FALSE) {
+                            method = "wilcox", latent.vars = NULL, force = FALSE, ...) {
   # run pairwise DEG analysis for all possible pairs in a data column
   DefaultAssay(tmp) = "RNA"
   tmp = SetIdent(tmp, value = id.col) 
@@ -86,7 +86,7 @@ run.deg.pairwise = function(tmp, file_prefix , id.col = "orig.ident", topN = 10,
         mm = read.csv(filename, row.names = 1)
       }else{
         cat("DE", id1, "vs", id2, "\n")
-        mm = FindMarkers(tmp, id1,id2, assay = "RNA",  test.use = method, latent.vars = latent.vars)
+        mm = FindMarkers(tmp, id1,id2, assay = "RNA",  test.use = method, latent.vars = latent.vars, ...)
         write.csv(mm, file=filename)
       }
       output[[paste0(id1,"_vs_",id2)]] = list(
