@@ -103,7 +103,13 @@ run.deg.pairwise = function(tmp, file_prefix , id.col = "orig.ident", topN = 10,
 
 
 
-
+## Detection of variable genes per batch with SelectIntegrationFeatures
+VariableFeaturesBatch = function(sdata, batch.key = "orig.ident", nfeatures = 3000) {
+    VariableFeatures(sdata) = NULL
+    sdata = SplitObject(sdata, split.by = batch.key)
+    feat = SelectIntegrationFeatures(sdata, nfeatures = nfeatures)
+    return(feat)
+}
 
 
 
