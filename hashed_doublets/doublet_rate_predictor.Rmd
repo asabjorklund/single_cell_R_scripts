@@ -38,7 +38,8 @@ names(nCells) = c("A","B")
 
 print(nCells)
 
-predict_hashed_doublet_rates(nCells, 75)
+out = predict_hashed_doublet_rates(nCells, 75)
+print(out)
 
 ```
 
@@ -50,7 +51,9 @@ predict_hashed_doublet_rates(nCells, 75)
 nCells[1] = 1000
 nCells
 
-predict_hashed_doublet_rates(nCells, 75)
+
+out = predict_hashed_doublet_rates(nCells, 75)
+print(out)
 ```
 
 ### 3 samples
@@ -62,8 +65,9 @@ nCells = c(200,500,700)
 names(nCells) = LETTERS[1:length(nCells)]
 nCells
 
-predict_hashed_doublet_rates(nCells, 75)
 
+out = predict_hashed_doublet_rates(nCells, 75)
+print(out)
 ```
 
 
@@ -76,7 +80,9 @@ nCells = seq(100,1100,100)
 names(nCells) = LETTERS[1:length(nCells)]
 nCells
 
-predict_hashed_doublet_rates(nCells, 75)
+
+out = predict_hashed_doublet_rates(nCells, 75)
+print(out)
 ```
 
 ### 20 samples
@@ -88,7 +94,9 @@ nCells = rep(500, 20)
 names(nCells) = LETTERS[1:length(nCells)]
 nCells
 
-predict_hashed_doublet_rates(nCells, 75)
+
+out = predict_hashed_doublet_rates(nCells, 75)
+print(out)
 ```
 
 ## Real data
@@ -115,7 +123,8 @@ Have 4 samples with 315 to 3806 cells, 4% doublets and 1.5% undermined.
 nMulti = nCells["Multiplet"]
 nCells = nCells[c(8:11)]
 
-predict_hashed_doublet_rates(nCells, nMulti)
+out = predict_hashed_doublet_rates(nCells, nMulti)
+print(out)
 ```
 
 

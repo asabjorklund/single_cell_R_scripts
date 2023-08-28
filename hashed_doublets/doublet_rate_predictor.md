@@ -51,18 +51,20 @@ print(nCells)
     ## 500 500
 
 ``` r
-predict_hashed_doublet_rates(nCells, 75)
+out = predict_hashed_doublet_rates(nCells, 75)
 ```
 
 ![](doublet_rate_predictor_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
-<div data-pagedtable="false">
+``` r
+print(out)
+```
 
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["nDoublets"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["PercentageTotal"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["PercentageSample"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"37.16","2":"3.716","3":"7.432","_rn_":"A"},{"1":"36.80","2":"3.680","3":"7.360","_rn_":"B"},{"1":"75.04","2":"7.504","3":"NA","_rn_":"HashDoublet"},{"1":"149.00","2":"14.900","3":"NA","_rn_":"totalDoublets"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-
-</div>
+    ##               nDoublets PercentageTotal PercentageSample
+    ## A                 36.54           3.654            7.308
+    ## B                 36.21           3.621            7.242
+    ## HashDoublet       75.25           7.525               NA
+    ## totalDoublets    148.00          14.800               NA
 
 ## Test different scenarios
 
@@ -77,18 +79,20 @@ nCells
     ## 1000  500
 
 ``` r
-predict_hashed_doublet_rates(nCells, 75)
+out = predict_hashed_doublet_rates(nCells, 75)
 ```
 
 ![](doublet_rate_predictor_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
-<div data-pagedtable="false">
+``` r
+print(out)
+```
 
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["nDoublets"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["PercentageTotal"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["PercentageSample"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"64.29","2":"4.286000","3":"6.429","_rn_":"A"},{"1":"17.13","2":"1.142000","3":"3.426","_rn_":"B"},{"1":"67.58","2":"4.505333","3":"NA","_rn_":"HashDoublet"},{"1":"149.00","2":"9.933333","3":"NA","_rn_":"totalDoublets"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-
-</div>
+    ##               nDoublets PercentageTotal PercentageSample
+    ## A                 63.48        4.232000            6.348
+    ## B                 15.34        1.022667            3.068
+    ## HashDoublet       66.18        4.412000               NA
+    ## totalDoublets    145.00        9.666667               NA
 
 ### 3 samples
 
@@ -104,18 +108,21 @@ nCells
     ## 200 500 700
 
 ``` r
-predict_hashed_doublet_rates(nCells, 75)
+out = predict_hashed_doublet_rates(nCells, 75)
 ```
 
 ![](doublet_rate_predictor_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-<div data-pagedtable="false">
+``` r
+print(out)
+```
 
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["nDoublets"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["PercentageTotal"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["PercentageSample"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2.67","2":"0.1907143","3":"1.335","_rn_":"A"},{"1":"17.12","2":"1.2228571","3":"3.424","_rn_":"B"},{"1":"32.13","2":"2.2950000","3":"4.590","_rn_":"C"},{"1":"75.08","2":"5.3628571","3":"NA","_rn_":"HashDoublet"},{"1":"127.00","2":"9.0714286","3":"NA","_rn_":"totalDoublets"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-
-</div>
+    ##               nDoublets PercentageTotal PercentageSample
+    ## A                  2.54       0.1814286         1.270000
+    ## B                 16.34       1.1671429         3.268000
+    ## C                 31.44       2.2457143         4.491429
+    ## HashDoublet       74.68       5.3342857               NA
+    ## totalDoublets    125.00       8.9285714               NA
 
 ### 10 samples
 
@@ -131,18 +138,29 @@ nCells
     ##  100  200  300  400  500  600  700  800  900 1000 1100
 
 ``` r
-predict_hashed_doublet_rates(nCells, 75)
+out = predict_hashed_doublet_rates(nCells, 75)
 ```
 
 ![](doublet_rate_predictor_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-<div data-pagedtable="false">
+``` r
+print(out)
+```
 
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["nDoublets"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["PercentageTotal"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["PercentageSample"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.02","2":"0.0003030303","3":"0.0200000","_rn_":"A"},{"1":"0.06","2":"0.0009090909","3":"0.0300000","_rn_":"B"},{"1":"0.18","2":"0.0027272727","3":"0.0600000","_rn_":"C"},{"1":"0.25","2":"0.0037878788","3":"0.0625000","_rn_":"D"},{"1":"0.41","2":"0.0062121212","3":"0.0820000","_rn_":"E"},{"1":"0.67","2":"0.0101515152","3":"0.1116667","_rn_":"F"},{"1":"0.95","2":"0.0143939394","3":"0.1357143","_rn_":"G"},{"1":"1.29","2":"0.0195454545","3":"0.1612500","_rn_":"H"},{"1":"1.39","2":"0.0210606061","3":"0.1544444","_rn_":"I"},{"1":"2.19","2":"0.0331818182","3":"0.2190000","_rn_":"J"},{"1":"2.37","2":"0.0359090909","3":"0.2154545","_rn_":"K"},{"1":"75.22","2":"1.1396969697","3":"NA","_rn_":"HashDoublet"},{"1":"85.00","2":"1.2878787879","3":"NA","_rn_":"totalDoublets"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-
-</div>
+    ##               nDoublets PercentageTotal PercentageSample
+    ## A                  0.04    0.0006060606        0.0400000
+    ## B                  0.09    0.0013636364        0.0450000
+    ## C                  0.09    0.0013636364        0.0300000
+    ## D                  0.19    0.0028787879        0.0475000
+    ## E                  0.36    0.0054545455        0.0720000
+    ## F                  0.61    0.0092424242        0.1016667
+    ## G                  0.97    0.0146969697        0.1385714
+    ## H                  1.38    0.0209090909        0.1725000
+    ## I                  1.60    0.0242424242        0.1777778
+    ## J                  1.83    0.0277272727        0.1830000
+    ## K                  2.40    0.0363636364        0.2181818
+    ## HashDoublet       74.44    1.1278787879               NA
+    ## totalDoublets     84.00    1.2727272727               NA
 
 ### 20 samples
 
@@ -158,18 +176,38 @@ nCells
     ## 500 500 500 500 500 500 500 500 500 500 500 500 500 500 500 500 500 500 500 500
 
 ``` r
-predict_hashed_doublet_rates(nCells, 75)
+out = predict_hashed_doublet_rates(nCells, 75)
 ```
 
 ![](doublet_rate_predictor_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-<div data-pagedtable="false">
+``` r
+print(out)
+```
 
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["nDoublets"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["PercentageTotal"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["PercentageSample"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.22","2":"0.0022","3":"0.044","_rn_":"A"},{"1":"0.22","2":"0.0022","3":"0.044","_rn_":"B"},{"1":"0.20","2":"0.0020","3":"0.040","_rn_":"C"},{"1":"0.25","2":"0.0025","3":"0.050","_rn_":"D"},{"1":"0.20","2":"0.0020","3":"0.040","_rn_":"E"},{"1":"0.22","2":"0.0022","3":"0.044","_rn_":"F"},{"1":"0.20","2":"0.0020","3":"0.040","_rn_":"G"},{"1":"0.16","2":"0.0016","3":"0.032","_rn_":"H"},{"1":"0.13","2":"0.0013","3":"0.026","_rn_":"I"},{"1":"0.12","2":"0.0012","3":"0.024","_rn_":"J"},{"1":"0.22","2":"0.0022","3":"0.044","_rn_":"K"},{"1":"0.18","2":"0.0018","3":"0.036","_rn_":"L"},{"1":"0.23","2":"0.0023","3":"0.046","_rn_":"M"},{"1":"0.17","2":"0.0017","3":"0.034","_rn_":"N"},{"1":"0.22","2":"0.0022","3":"0.044","_rn_":"O"},{"1":"0.21","2":"0.0021","3":"0.042","_rn_":"P"},{"1":"0.17","2":"0.0017","3":"0.034","_rn_":"Q"},{"1":"0.19","2":"0.0019","3":"0.038","_rn_":"R"},{"1":"0.20","2":"0.0020","3":"0.040","_rn_":"S"},{"1":"0.23","2":"0.0023","3":"0.046","_rn_":"T"},{"1":"75.06","2":"0.7506","3":"NA","_rn_":"HashDoublet"},{"1":"79.00","2":"0.7900","3":"NA","_rn_":"totalDoublets"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-
-</div>
+    ##               nDoublets PercentageTotal PercentageSample
+    ## A                  0.18          0.0018            0.036
+    ## B                  0.27          0.0027            0.054
+    ## C                  0.28          0.0028            0.056
+    ## D                  0.15          0.0015            0.030
+    ## E                  0.29          0.0029            0.058
+    ## F                  0.18          0.0018            0.036
+    ## G                  0.22          0.0022            0.044
+    ## H                  0.18          0.0018            0.036
+    ## I                  0.17          0.0017            0.034
+    ## J                  0.15          0.0015            0.030
+    ## K                  0.24          0.0024            0.048
+    ## L                  0.11          0.0011            0.022
+    ## M                  0.18          0.0018            0.036
+    ## N                  0.12          0.0012            0.024
+    ## O                  0.11          0.0011            0.022
+    ## P                  0.11          0.0011            0.022
+    ## Q                  0.21          0.0021            0.042
+    ## R                  0.26          0.0026            0.052
+    ## S                  0.16          0.0016            0.032
+    ## T                  0.17          0.0017            0.034
+    ## HashDoublet       75.26          0.7526               NA
+    ## totalDoublets     79.00          0.7900               NA
 
 ## Real data
 
@@ -204,15 +242,19 @@ Have 4 samples with 315 to 3806 cells, 4% doublets and 1.5% undermined.
 nMulti = nCells["Multiplet"]
 nCells = nCells[c(8:11)]
 
-predict_hashed_doublet_rates(nCells, nMulti)
+out = predict_hashed_doublet_rates(nCells, nMulti)
 ```
 
 ![](doublet_rate_predictor_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
-<div data-pagedtable="false">
+``` r
+print(out)
+```
 
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["nDoublets"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["PercentageTotal"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["PercentageSample"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"155.90","2":"2.26237121","3":"4.0961640","_rn_":"SampleTag08_hs"},{"1":"1.15","2":"0.01668843","3":"0.3650794","_rn_":"SampleTag09_hs"},{"1":"17.39","2":"0.25235815","3":"1.3470178","_rn_":"SampleTag10_hs"},{"1":"24.19","2":"0.35103759","3":"1.6355646","_rn_":"SampleTag11_hs"},{"1":"310.37","2":"4.50399071","3":"NA","_rn_":"HashDoublet"},{"1":"509.00","2":"7.38644609","3":"NA","_rn_":"totalDoublets"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-
-</div>
+    ##                nDoublets PercentageTotal PercentageSample
+    ## SampleTag08_hs    155.02      2.24960093        4.0730426
+    ## SampleTag09_hs      1.14      0.01654332        0.3619048
+    ## SampleTag10_hs     17.57      0.25497025        1.3609605
+    ## SampleTag11_hs     23.44      0.34015382        1.5848546
+    ## HashDoublet       309.83      4.49615440               NA
+    ## totalDoublets     507.00      7.35742273               NA
