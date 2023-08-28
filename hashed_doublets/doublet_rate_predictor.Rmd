@@ -1,0 +1,121 @@
+---
+title: "Doublet rate prediction"
+author: "Asa Bjorklund"
+date: "`r format(Sys.time(), '%d/%m/%y')`"
+output:
+  github_document:
+    df_print: paged
+    toc: true
+    toc_depth: 3
+
+          
+      
+---
+
+```{r}
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(reshape2))
+
+source("predict_hashed_doublet_rates.R")
+```
+
+
+Given the number of cells per hashtag in an experiment and the number of double tags observed,  the intra-sample doublet rate can be calculated for each sample.
+
+Assuming that the sample distribution in the hashed cells and in the doublets is the same, e.g. that there is no sample bias in doublet creation. Also, assumes that all multiplets consists of 2 cells.
+
+The function `predict_hashed_doublet_rates` will create artificial doublets from the observed distribution, randomly selected 100 times. Simulations are done across different doublet rates and then identifies the rate closest to the observed for across hashtag doublets.
+
+
+## 2 samples at equal distribution.
+
+Define cells as 500 of each sample and 75 multiplets.
+
+```{r}
+nMulti = 75
+nCells = c(500,500)
+names(nCells) = c("A","B")
+
+print(nCells)
+
+predict_hashed_doublet_rates(nCells, 75)
+
+```
+
+## Test different scenarios
+
+### More of 1 sample
+
+```{r}
+nCells[1] = 1000
+nCells
+
+predict_hashed_doublet_rates(nCells, 75)
+```
+
+### 3 samples
+
+Different number of each sample, still 75 observed multiplets.
+
+```{r}
+nCells = c(200,500,700)
+names(nCells) = LETTERS[1:length(nCells)]
+nCells
+
+predict_hashed_doublet_rates(nCells, 75)
+
+```
+
+
+### 10 samples
+
+Different number of each sample
+
+```{r}
+nCells = seq(100,1100,100)
+names(nCells) = LETTERS[1:length(nCells)]
+nCells
+
+predict_hashed_doublet_rates(nCells, 75)
+```
+
+### 20 samples
+
+Equal number of each sample
+
+```{r}
+nCells = rep(500, 20)
+names(nCells) = LETTERS[1:length(nCells)]
+nCells
+
+predict_hashed_doublet_rates(nCells, 75)
+```
+
+## Real data
+
+Data from Nima with 4 samples, uneven distribution of cell numbers.
+
+
+```{r}
+stats = read.csv("stats.txt")
+
+nCells = stats$Cells_Called[-1]
+names(nCells) = stats$Sample_Tag[-1]
+
+barplot(nCells, las = 2)
+
+nCells
+```
+
+Have 4 samples with 315 to 3806 cells, 4% doublets and 1.5% undermined.
+
+
+```{r}
+# Ignore all other sample tags
+nMulti = nCells["Multiplet"]
+nCells = nCells[c(8:11)]
+
+predict_hashed_doublet_rates(nCells, nMulti)
+```
+
+
