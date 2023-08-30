@@ -18,7 +18,7 @@ filter_cutoffs = function(sobj, meta.name, batch.key = "orig.ident",
       cells = names(x)[x < cut]
     }else { 
       cut = m - mad.cut*s
-      cells = which(x < cut)
+      cells = names(x)[which(x > cut)]
     }  
     return(list(cells = cells, cutoff=cut))
   })
